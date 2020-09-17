@@ -26,7 +26,6 @@ public class RegistrarClass extends AppCompatActivity {
 
         SharedPreferences preferences = getSharedPreferences("savePerson",MODE_PRIVATE);
 
-
         continuar.setOnClickListener(
                 (v) -> {
                     Intent a = new Intent(this,NexoEpidemiologico.class);
@@ -39,14 +38,12 @@ public class RegistrarClass extends AppCompatActivity {
 
                     String registro = registroNew + ":" + pn;
                     String registroIdString = registroId + ":" + pi;
-                    String[] partes = registroIdString.split(":");
 
-                    for(int i = 0; i < partes.length; i++){
-                        if(partes[i].contains(registroId)){
-                            Toast.makeText(this, "Ya lo tienes registrado", Toast.LENGTH_SHORT).show();
-                            return;
-                        }
+                    if(registroId.contains(pi)){
+                        Toast.makeText(this, "Ya lo tienes registrado", Toast.LENGTH_SHORT).show();
+                        return;
                     }
+
                     preferences.edit().putString("registros",registro).apply();
                     preferences.edit().putString("registrosId",registroIdString).apply();
                     startActivity(a);

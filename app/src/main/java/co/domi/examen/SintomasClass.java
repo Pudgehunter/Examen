@@ -30,17 +30,10 @@ public class SintomasClass extends AppCompatActivity {
         sintomas5 = findViewById(R.id.sintomas5);
         sintomas6 = findViewById(R.id.sintomas6);
         sintomas7 = findViewById(R.id.sintomas7);
-        boolean sintomasCheck = sintomas.isChecked();
-        boolean sintomasCheck2 = sintomas2.isChecked();
-        boolean sintomasCheck3 = sintomas3.isChecked();
-        boolean sintomasCheck4 = sintomas4.isChecked();
-        boolean sintomasCheck5 = sintomas5.isChecked();
-        boolean sintomasCheck6 = sintomas6.isChecked();
-        boolean sintomasCheck7 = sintomas7.isChecked();
 
         SharedPreferences preferences = getSharedPreferences("savePerson",MODE_PRIVATE);
         int sumaNe = preferences.getInt("riesgoNe", 0);
-        sintomasRiesgo = sumaNe + 0;
+        sintomasRiesgo = sumaNe;
 
         textView8.append(""+sumaNe);
 
@@ -157,13 +150,26 @@ public class SintomasClass extends AppCompatActivity {
         finalizar.setOnClickListener(
                 (v) -> {
                     Intent a = new Intent(this,MainActivity.class);
-
-                    if(sintomasCheck || sintomasCheck2 || sintomasCheck3 || sintomasCheck4 || sintomasCheck5 || sintomasCheck6){
+                    if (sintomas.isChecked()){
                         sintomasRiesgo = sintomasRiesgo + 4;
-                        finalizar.setBackgroundColor(Color.rgb(240,24,86));
-                    }else if (sintomasCheck7){
+                    }
+                    if (sintomas2.isChecked()){
+                        sintomasRiesgo = sintomasRiesgo + 4;
+                    }
+                    if (sintomas3.isChecked()){
+                        sintomasRiesgo = sintomasRiesgo + 4;
+                    }
+                    if (sintomas4.isChecked()){
+                        sintomasRiesgo = sintomasRiesgo + 4;
+                    }
+                    if (sintomas5.isChecked()){
+                        sintomasRiesgo = sintomasRiesgo + 4;
+                    }
+                    if (sintomas6.isChecked()){
+                        sintomasRiesgo = sintomasRiesgo + 4;
+                    }
+                    if (sintomas7.isChecked()){
                         sintomasRiesgo = sintomasRiesgo + 0;
-                        finalizar.setBackgroundColor(Color.rgb(240,24,86));
                     }
 
                     if(sintomas.isChecked() == true ||
@@ -173,10 +179,11 @@ public class SintomasClass extends AppCompatActivity {
                             sintomas5.isChecked() == true ||
                             sintomas6.isChecked() == true ||
                             sintomas7.isChecked() == true) {
-                        int ParaQueNoSeRepita = sintomasRiesgo;
-                        int numerosPasados = preferences.getInt("riesgoNe",0);
-                        String numerosPasadosString = numerosPasados + ":" + sintomasRiesgo;
-                        preferences.edit().putString("riesgoNe",numerosPasadosString).apply();
+                        //String numerosPasadosString = numerosPasados + ":" + sintomasRiesgo;
+                       // int RiesgoTotal = preferences.getInt("riesgoTotal",0);
+                       // String registroIdString = RiesgoTotal + ":" + sintomasRiesgo;
+                       // preferences.edit().putString("riesgoStringTotal",registroIdString).apply();
+                        preferences.edit().putInt("riesgoTotal",sintomasRiesgo).apply();
                         startActivity(a);
                         finish();
                     }

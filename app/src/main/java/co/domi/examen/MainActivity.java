@@ -40,15 +40,18 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("savePerson",MODE_PRIVATE);
         String username = preferences.getString("registros","Yoshiki Tsutsui Michida");
         String[] partes = username.split(":");
-        //int Riesgo = preferences.getInt("riesgoNe",0);
+        int Riesgo = preferences.getInt("riesgoTotal",0);
+       // String total = preferences.getString("riesgoStringTotal","0");
+       // String RiesgoPartes = total + ":" + Riesgo;
+        //String[] RiesgoPartesTotales = RiesgoPartes.split(":");
         for(int i = 0; i < partes.length; i++) {
-            nombreView.append("" + partes[i] + ":" + " " + "a" + "\n");
+            nombreView.append("" + partes[i] + ":" + " " + Riesgo + "\n");
         }
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        //getSharedPreferences("savePerson", MODE_PRIVATE).edit().clear().apply();
+        getSharedPreferences("savePerson", MODE_PRIVATE).edit().clear().apply();
     }
 }

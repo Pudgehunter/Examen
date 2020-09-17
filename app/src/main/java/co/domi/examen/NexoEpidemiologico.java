@@ -36,7 +36,8 @@ public class NexoEpidemiologico extends AppCompatActivity{
         checkboxLayout = findViewById(R.id.checkboxLayout);
 
         SharedPreferences preferences = getSharedPreferences("savePerson",MODE_PRIVATE);
-        riesgoNe = 0;
+        riesgoNe = preferences.getInt("riesgoNe",0);
+        //riesgoNe = 0;
 
         //Profe, se que me dijiste que no haga esto, pero me desespere y no encontre otra solución para hacer esto... Lo siento.
         checkBox.setOnCheckedChangeListener(
