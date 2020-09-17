@@ -19,7 +19,6 @@
             android:layout_width="230dp"
             android:layout_height="302dp"
             android:layout_marginTop="36dp"
-            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,13 +49,6 @@
             app:layout_constraintTop_toBottomOf="@+id/nombreView"
             app:layout_constraintVertical_bias="0.296" />
 
-        <TextView
-            android:id="@+id/a"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            app:layout_constraintTop_toBottomOf="@+id/registrarButton"
-            tools:layout_editor_absoluteX="152dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
